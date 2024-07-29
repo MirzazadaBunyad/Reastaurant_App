@@ -1,23 +1,17 @@
 import { StyleSheet } from "react-native";
-import HomeScreen from "./src/screens/HomeScreen";
-import CoursesScreen from "./src/screens/CoursesScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import CoursesInformationScreen from "./src/screens/CoursesInformationScreen";
+import SearchScreen from "./screens/SearchScreen";
+import ResultsShowScreen from "./screens/ResultsShowScreen";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Courses" component={CoursesScreen} />
-        <Stack.Screen
-          name="CoursesInformation"
-          component={CoursesInformationScreen}
-          options={{ title: "Courses Information" }}
-        />
+      <Stack.Navigator screenOptions={{ headerTitle: "Restaurant App" }}>
+        <Stack.Screen name="Search" component={SearchScreen} />
+        <Stack.Screen name="Results Show" component={ResultsShowScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
